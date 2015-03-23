@@ -14,9 +14,6 @@ namespace Chapter1
             if (!numbers.Contains(","))
             {
                 return int.Parse(numbers);
-
-
-
             }
             else
             {
@@ -24,7 +21,6 @@ namespace Chapter1
                     "I can only handle 0 or 1 numbers for now!");
             }
         }
-
     }
 
     public class SimpleParserTests
@@ -37,9 +33,8 @@ namespace Chapter1
                 int result = p.ParseAndSum(string.Empty);
                 if (result != 0)
                 {
-
                     Console.WriteLine(
-                        @"***SimpleParserTests.TestReturnsZeroWhenEmptyString: 
+                        @"***SimpleParserTests.TestReturnsZeroWhenEmptyString:
 -------
 Parse and sum should have returned 0 on an empty string");
                 }
@@ -73,10 +68,10 @@ Parse and sum should have returned 0 on an empty string");
             {
                 SimpleParser p = new SimpleParser();
                 int result = p.ParseAndSum(string.Empty);
-                if(result!=0)
+                if (result != 0)
                 {
-            //Calling the helper method
-                    TestUtil.ShowProblem(testName, 
+                    //Calling the helper method
+                    TestUtil.ShowProblem(testName,
 "Parse and sum should have returned 0 on an empty string");
                 }
             }
@@ -85,10 +80,5 @@ Parse and sum should have returned 0 on an empty string");
                 TestUtil.ShowProblem(testName, e.ToString());
             }
         }
-
     }
-
-
-
-
 }
