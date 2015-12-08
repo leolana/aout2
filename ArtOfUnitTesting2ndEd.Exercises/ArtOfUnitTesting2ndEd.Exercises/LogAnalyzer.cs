@@ -8,6 +8,6 @@ namespace ArtOfUnitTesting2ndEd.Exercises
 {
     public class LogAnalyzer
     {
-        public bool IsValidLogFileName(string fileName) => fileName.EndsWith(".SLF");
+        public bool IsValidLogFileName(string fileName) => fileName.EndsWith(".SLF", StringComparison.CurrentCultureIgnoreCase);
     }
 }
