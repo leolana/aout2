@@ -52,5 +52,12 @@ namespace LogAn.UnitTests
         {
             return new LogAnalyzer();
         }
+
+        [Test]
+        [Ignore("there is a problem with this test")]
+        public void IsValidFileName_ValidFile_ReturnsTrue()
+        {
+            
+        }
     }
 }
