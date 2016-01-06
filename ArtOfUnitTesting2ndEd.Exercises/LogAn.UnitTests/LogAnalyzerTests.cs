@@ -1,4 +1,5 @@
-﻿using ArtOfUnitTesting2ndEd.Exercises;
+﻿using System;
+using ArtOfUnitTesting2ndEd.Exercises;
 using NUnit.Framework;
 
 namespace LogAn.UnitTests
@@ -35,6 +36,21 @@ namespace LogAn.UnitTests
             var result = analyzer.IsValidLogFileName("filewithbadextension.SLF");
 
             Assert.True(result);
+        }
+
+        [Test]
+        public void IsValidFileName_EmptyFileName_Throws()
+        {
+            LogAnalyzer la = MakeAnalyzer();
+
+            var ex = Assert.Catch<Exception>(() => la.IsValidLogFileName(("")));
+
+            StringAssert.Contains("filename has to be provivded", ex.Message);
+        }
+
+        private LogAnalyzer MakeAnalyzer()
+        {
+            return new LogAnalyzer();
         }
     }
 }
