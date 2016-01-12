@@ -13,11 +13,16 @@ namespace LogAn.UnitTests
         [Test]
         public void Sum_ByDefault_ReturnsZero()
         {
-            var calc = new MemCalculator();
+            var calc = MakeCalc();
 
             var lastSum = calc.Sum();
 
             Assert.AreEqual(0, lastSum);
+        }
+
+        private static MemCalculator MakeCalc()
+        {
+            return new MemCalculator();   
         }
     }
 }
