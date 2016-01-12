@@ -69,13 +69,25 @@ namespace LogAn.UnitTests
         }
 
         [Test]
-        public void IsValidFileName_WhenCalled_ChangeWasLastFileNameValid()
+        public void IsValidLogFileName_WhenCalled_ChangesWasLastFileNameValid()
         {
             var la = MakeAnalyzer();
 
             la.IsValidLogFileName("badname.foo");
 
-            Assert.False(la.WasLastFileNameValid);
+            Assert.IsFalse(la.WasLastFileNameValid);
+        }
+
+        //refactored from above
+        [TestCase("badfile.foo", false)]
+        [TestCase("goodfile.slf", true)]
+        public void IsValidLogFileName_WhenCalled_ChangesWasLastFileNameValid(string file, bool expected)
+        {
+            var la = MakeAnalyzer();
+
+            la.IsValidLogFileName(file);
+
+            Assert.AreEqual(expected, la.WasLastFileNameValid);
         }
     }
 }
