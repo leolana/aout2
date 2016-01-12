@@ -8,14 +8,22 @@ namespace ArtOfUnitTesting2ndEd.Exercises
 {
     public class LogAnalyzer
     {
+        public bool WasLastFileNameValid { get; set; }
+
         public bool IsValidLogFileName(string fileName)
         {
+            WasLastFileNameValid = false;
             if (string.IsNullOrEmpty(fileName))
             {
                 throw new ArgumentException("filename has to be provivded");
             }
+            if (!fileName.EndsWith(".SLF", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return false;
+            }
 
-            return fileName.EndsWith(".SLF", StringComparison.CurrentCultureIgnoreCase);
+            WasLastFileNameValid = true;
+            return true;
         }
     }
 }
